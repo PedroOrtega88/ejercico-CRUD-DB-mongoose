@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
-const { dbConnection } = require('./config/config');
+const { dbConnection } = require('./config');
 const routes = require('./routes');
 
 app.use(express.json());
@@ -9,6 +9,8 @@ app.use(express.json());
 app.use('/', routes);
 
 dbConnection();
+
+const Tarea = mongoose.model('Tarea', tareaSchema);
 
 
 app.post('/create', async (req, res) =>{
@@ -37,7 +39,7 @@ app.post('/create', async (req, res) =>{
 
 
 
-  app.put('/markAsCompleted', async (req, res) => {
+  app.put('/', async (req, res) => {
     try {
       const {tarea} = req.body();
 
