@@ -1,11 +1,14 @@
-const mongoose = require('mongoose');
+const mongoose =require ('mongoose')
 
 const TaskSchema = new mongoose.Schema({
-    username: String,
-    email: String,
-    password: String,
-}, { timestamps: true });
 
-const User = mongoose.model('User', UserSchema);
+title:String,
+completed: Boolean
+},{timestamps: true})
 
-module.exports = TaskSchema;
+const Task = mongoose.model('Task', TaskSchema)
+
+module.exports = Task
+
+
+
